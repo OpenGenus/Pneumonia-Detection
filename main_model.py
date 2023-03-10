@@ -1,10 +1,10 @@
-import TensorFlow as tf
+import tensorflow as tf
 import keras.backend as K
 
 input_shape = (224, 224, 3)
 
 base_model = tf.keras.applications.DenseNet121(
-    input_shape=input_shape, weights="ImageNet", include_top=False)
+    input_shape=input_shape, weights="imagenet", include_top=False)
 x = base_model.output
 x = tf.keras.layers.GlobalAveragePooling2D()(x)
 x = tf.keras.layers.Dense(1024, activation='relu')(x)
